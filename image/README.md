@@ -1,1 +1,1 @@
-# mysql_kubernetes
+## Docker image files for master slave
