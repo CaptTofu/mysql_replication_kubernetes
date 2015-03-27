@@ -1,0 +1,45 @@
+{
+  "id": "mysql-slave",
+  "kind": "Pod",
+  "apiVersion": "v1beta1",
+  "desiredState": {
+    "manifest": {
+      "version": "v1beta1",
+      "id": "mysql-slave",
+      "containers": [{
+        "name": "mysql",
+        "image": "capttofu/mysql_slave_kubernetes:latest",
+        "cpu": 100,
+        "env": [
+              {
+                  "name": "MYSQL_USER",
+                  "value": "mysql"
+              },
+              {
+                  "name": "MYSQL_PASSWORD",
+                  "value": "mysql"
+              },
+              {
+                  "name": "MYSQL_DATABASE",
+                  "value": "sample"
+              },
+              {
+                  "name": "MYSQL_ROOT_PASSWORD",
+                  "value": "root"
+              },
+              {
+                  "name": "MYSQL_REPLICATION_PASSWORD",
+                  "value": "repl"
+              }
+          ],
+        "ports": [{
+          "containerPort": 3306,
+          "hostPort": 3306
+        }]
+      }]
+    }
+  },
+  "labels": {
+    "name": "mysql-slave"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "mysql-master",
+  "kind": "Service",
+  "apiVersion": "v1beta1",
+  "port": 3306,
+  "containerPort": 3306,
+  "selector": {
+    "name": "mysql-master"
+  },
+  "labels": {
+    "name": "mysql-master"
+  }
+}
