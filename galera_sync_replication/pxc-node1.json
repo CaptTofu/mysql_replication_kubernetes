@@ -1,0 +1,63 @@
+{
+  "id": "pxc-node1",
+  "kind": "Pod",
+  "apiVersion": "v1beta1",
+  "desiredState": {
+    "manifest": {
+      "version": "v1beta1",
+      "id": "pxc-node1",
+      "containers": [{
+        "name": "pxc-node1",
+        "image": "capttofu/percona_xtradb_cluster_5_6",
+        "cpu": 100,
+        "env": [
+	      {
+		  "name": "GALERA_CLUSTER",
+	          "value": "yes"
+	      },
+	      {
+		  "name": "WSREP_SST_USER",
+	          "value": "sst"
+	      },
+	      {
+		  "name": "WSREP_SST_PASSWORD",
+	          "value": "sst"
+	      },
+              {
+                  "name": "MYSQL_USER",
+                  "value": "mysql"
+              },
+              {
+                  "name": "MYSQL_PASSWORD",
+                  "value": "mysql"
+              },
+              {
+                  "name": "MYSQL_ROOT_PASSWORD",
+                  "value": "root"
+              }
+          ],
+        "ports": [
+		{
+          	  "containerPort": 3306,
+          	  "hostPort": 3306
+                },
+                {
+	          "containerPort": 4444,
+                  "hostPort": 4444
+	        },
+                {
+	          "containerPort": 4567,
+                  "hostPort": 4567
+	        },
+                {
+	          "containerPort": 4568,
+                  "hostPort": 4568
+                }
+          ],
+       }]
+    }
+  },
+  "labels": {
+    "name": "pxc-node1"
+  }
+}
