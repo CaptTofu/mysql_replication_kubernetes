@@ -1,0 +1,10 @@
+---
+  id: pxc-node1
+  kind: Service
+  apiVersion: v1beta1
+  port: 3306
+  containerPort: 3306
+  selector:
+    name: pxc-node1
+  labels:
+    name: pxc-node1

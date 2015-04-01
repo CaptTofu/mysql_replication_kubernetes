@@ -1,0 +1,3 @@
+[submodule "galera_sync_replication/image"]
+	path = galera_sync_replication/image
+	url = git@github.com:CaptTofu/percona_xtradb_cluster_docker.git
