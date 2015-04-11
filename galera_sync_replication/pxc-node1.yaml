@@ -32,6 +32,6 @@ desiredState:
           - name: MYSQL_PASSWORD
             value: mysql
           - name: MYSQL_ROOT_PASSWORD
-            value: root
-  labels:
-    name: pxc-node1
+            value: c-krit 
+labels:
+  name: pxc-node1

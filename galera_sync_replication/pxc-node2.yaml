@@ -21,8 +21,6 @@ desiredState:
         env:
           - name: GALERA_CLUSTER
             value: "true"
-          - name: WSREP_CLUSTER_ADDRESS
-            value: gcomm://10.244.72.7
           - name: WSREP_SST_USER
             value: sst
           - name: WSREP_SST_PASSWORD
@@ -32,6 +30,6 @@ desiredState:
           - name: MYSQL_PASSWORD
             value: mysql
           - name: MYSQL_ROOT_PASSWORD
-            value: root
-  labels:
-    name: pxc-node2
+            value: c-kr1t 
+labels:
+  name: pxc-node2

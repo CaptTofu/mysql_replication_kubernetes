@@ -8,3 +8,5 @@
     name: "pxc-node3"
   labels:
     name: "pxc-node3"
+  publicIPs:
+  - 172.16.230.139 
