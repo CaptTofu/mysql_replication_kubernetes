@@ -1,35 +1,41 @@
-id: pxc-node2
+apiVersion: v1
 kind: Pod
-apiVersion: v1beta1
-desiredState:
-  manifest:
-    version: v1beta1
-    id: pxc-node2
-    containers:
-      - name: pxc-node2
-        image: capttofu/percona_xtradb_cluster_5_6:latest
-        cpu: 100
-        ports:
-          - containerPort: 3306
-            hostPort: 3306
-          - containerPort: 4444
-            hostPort: 4444
-          - containerPort: 4567
-            hostPort: 4567
-          - containerPort: 4568
-            hostPort: 4568
-        env:
-          - name: GALERA_CLUSTER
-            value: "true"
-          - name: WSREP_SST_USER
-            value: sst
-          - name: WSREP_SST_PASSWORD
-            value: sst
-          - name: MYSQL_USER
-            value: mysql
-          - name: MYSQL_PASSWORD
-            value: mysql
-          - name: MYSQL_ROOT_PASSWORD
-            value: c-kr1t 
-labels:
+metadata:
   name: pxc-node2
+  labels:
+    name: pxc-node2
+spec:
+  containers:
+    - resources:
+        limits: 
+          cpu: 0.5
+      image: capttofu/percona_xtradb_cluster_5_6:latest
+      name: pxc-node1
+      ports:
+        - containerPort: 3306
+          hostPort: 3306
+          name: mysql
+        - containerPort: 4444
+          hostPort: 4444
+#name: state-snapshot-transfer
+        - containerPort: 4567
+          hostPort: 4567
+# name: replication-traffic
+        - containerPort: 4568
+          hostPort: 4568
+# name: incremental-state-transfer
+      env:
+        - name: GALERA_CLUSTER
+          value: "true"
+        - name: WSREP_CLUSTER_ADDRESS
+          value: gcomm://10.244.47.2
+        - name: WSREP_SST_USER
+          value: sst
+        - name: WSREP_SST_PASSWORD
+          value: sst
+        - name: MYSQL_USER
+          value: mysql
+        - name: MYSQL_PASSWORD
+          value: mysql
+        - name: MYSQL_ROOT_PASSWORD
+          value: c-krit 

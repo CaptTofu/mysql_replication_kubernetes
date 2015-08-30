@@ -1,7 +1,7 @@
 ---
   id: pxc-node1
   kind: Service
-  apiVersion: v1beta1
+  apiVersion: v1
   port: 3306
   containerPort: 3306
   selector:
