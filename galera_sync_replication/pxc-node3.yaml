@@ -28,7 +28,7 @@ spec:
         - name: GALERA_CLUSTER
           value: "true"
         - name: WSREP_CLUSTER_ADDRESS
-          value: gcomm://10.100.152.192
+          value: gcomm://
         - name: WSREP_SST_USER
           value: sst
         - name: WSREP_SST_PASSWORD
