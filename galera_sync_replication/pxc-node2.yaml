@@ -10,7 +10,7 @@ spec:
         limits: 
           cpu: 0.5
       image: capttofu/percona_xtradb_cluster_5_6:latest
-      name: pxc-node1
+      name: pxc-node2
       ports:
         - containerPort: 3306
           hostPort: 3306
